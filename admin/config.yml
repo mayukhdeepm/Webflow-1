@@ -1,0 +1,3513 @@
+backend:
+  name: git-gateway
+  accept_roles:
+    - admin
+    - editor
+  branch: main
+media_folder: theme/assets/images
+public_folder: /assets/images
+collections:
+  - name: pages
+    label: Pages
+    identifier_field: title
+    extension: md
+    create: false
+    delete: false
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    folder: cms/pages
+    fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '{{slug}}.html'
+      - &ref_0
+        label: Seo
+        name: seo
+        widget: object
+        collapsed: true
+        fields:
+          - label: Title
+            name: title
+            widget: string
+            required: false
+          - label: Description
+            name: description
+            widget: string
+            required: false
+          - label: No index
+            name: noindex
+            widget: boolean
+            default: false
+            required: false
+          - label: Open Graph Title
+            name: og:title
+            widget: string
+            required: false
+          - label: Open Graph Image
+            name: og:image
+            widget: image
+            required: false
+            media_library:
+              config:
+                multiple: false
+          - label: Twitter Title
+            name: twitter:title
+            widget: string
+            default: summary
+            required: false
+          - label: Twitter Card
+            name: twitter:card
+            widget: string
+            default: summary
+            required: false
+          - label: Twitter Site
+            name: twitter:site
+            widget: string
+            required: false
+          - label: Twitter Creator
+            name: twitter:creator
+            widget: string
+            required: false
+          - label: Twitter Image
+            name: twitter:image
+            widget: image
+            required: false
+            media_library:
+              config:
+                multiple: false
+          - label: Additional HTML tags
+            name: additional_tags
+            widget: text
+            required: false
+  - name: ourwork_sections
+    label: OurWork-Sections
+    folder: cms/ourwork-sections
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Header
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: f_location
+        label: Location
+        widget: string
+        required: false
+      - hint: ''
+        name: f_image
+        label: Image
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_text1
+        label: Text1
+        widget: string
+        required: false
+      - hint: ''
+        name: f_paragraph1
+        label: Paragraph1
+        widget: string
+        required: false
+      - hint: ''
+        name: f_text2
+        label: Text2
+        widget: string
+        required: false
+      - hint: ''
+        name: f_paragraph2
+        label: Paragraph2
+        widget: string
+        required: false
+      - hint: ''
+        name: f_text3
+        label: Text3
+        widget: string
+        required: false
+      - hint: ''
+        name: f_paragraph3
+        label: Paragraph3
+        widget: string
+        required: false
+      - hint: ''
+        name: f_text4
+        label: Text4
+        widget: string
+        required: false
+      - hint: ''
+        name: f_paragraph4
+        label: Paragraph4
+        widget: string
+        required: false
+      - hint: ''
+        name: f_paragraph4a
+        label: Paragraph4a
+        widget: string
+        required: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: ourwork-sections
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[ourwork-sections].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - name: insights_description
+    label: Insights-Descriptions
+    folder: cms/insights-description
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Name
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - label: Rich Text
+        name: body
+        widget: markdown
+        required: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: insights-description
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[insights-description].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - name: webar_description
+    label: Imemersive-Sections
+    folder: cms/webar-description
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Name
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - label: Rich Text
+        name: body
+        widget: markdown
+        required: false
+      - hint: ''
+        name: f_image1
+        label: Image1
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_rich-text-1
+        label: Rich Text 1
+        widget: markdown
+        required: false
+      - hint: ''
+        name: f_image2
+        label: Image2
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_rich-text-2
+        label: Rich Text 2
+        widget: markdown
+        required: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: webar-description
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[webar-description].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - name: industried_sections
+    label: Industries-Sections
+    folder: cms/industried-sections
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Name
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - label: Rich Text
+        name: body
+        widget: markdown
+        required: false
+      - hint: ''
+        name: f_image1
+        label: Image1
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_rich-text-1
+        label: Rich Text 1
+        widget: markdown
+        required: false
+      - hint: ''
+        name: f_image2
+        label: Image2
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_rich-text-2
+        label: Rich Text 2
+        widget: markdown
+        required: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: industried-sections
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[industried-sections].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - name: insight_sections
+    label: Insight-Sections
+    folder: cms/insight-sections
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Name
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - label: Rich Text
+        name: body
+        widget: markdown
+        required: false
+      - hint: ''
+        name: f_image1
+        label: Image1
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_rich-text-1
+        label: Rich Text 1
+        widget: markdown
+        required: false
+      - hint: ''
+        name: f_image2
+        label: Image2
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_rich-text-2
+        label: Rich Text 2
+        widget: markdown
+        required: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: insight-sections
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[insight-sections].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - name: insights
+    label: Insights
+    folder: cms/insights
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Header
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: f_image
+        label: Image
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_text
+        label: Text
+        widget: string
+        required: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: insights
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[insights].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - name: ourwork
+    label: OurWorks
+    folder: cms/ourwork
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Header
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: f_image
+        label: Image
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_text
+        label: Text
+        widget: string
+        required: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: ourwork
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[ourwork].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - name: ourworks_bottom
+    label: OurWorks-bottoms
+    folder: cms/ourworks-bottom
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Header
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: f_image
+        label: Image
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_text
+        label: Text
+        widget: string
+        required: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: ourworks-bottom
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[ourworks-bottom].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - name: industried
+    label: Industries
+    folder: cms/industried
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Header
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: f_text
+        label: Text
+        widget: string
+        required: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: industried
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[industried].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - name: immersive
+    label: Immersives
+    folder: cms/immersive
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Heading
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: f_text
+        label: Text
+        widget: string
+        required: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: immersive
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[immersive].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - name: landing_page
+    label: Landing-Pages
+    folder: cms/landing-page
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Heading
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: f_text
+        label: Text
+        widget: string
+        required: false
+      - hint: ''
+        name: f_video
+        label: Video
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Url
+            widget: string
+            required: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: landing-page
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[landing-page].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - name: post
+    label: Blog Posts
+    folder: cms/post
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: The main title text that identifies the blog post
+        name: title
+        label: Post Title
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - label: Post Body
+        name: body
+        widget: markdown
+        required: false
+      - hint: A summary of the blog post that appears on blog post grid
+        name: f_post-summary
+        label: Post Summary
+        widget: text
+        required: false
+      - hint: The main image to be displayed in the blog post
+        name: f_main-image
+        label: Main Image
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: Smaller version of main image that is used on blog post listings
+        name: f_thumbnail-image
+        label: Thumbnail Image
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: Which category does this blog post belong to? eg. News, Insights
+        name: f_category-2
+        label: Category
+        widget: relation
+        required: true
+        collection: blog_categories
+        value_field: cms/blog-categories/{{slug}}.md
+        search_fields:
+          - slug
+          - name
+        display_fields:
+          - title
+        multiple: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: post
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[post].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - name: blog_categories
+    label: Blog Categories
+    folder: cms/blog-categories
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: The name of the category
+        name: title
+        label: Blog Category
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: blog-categories
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[blog-categories].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - label: Theme Settings
+    name: settings
+    identifier_field: title
+    extension: json
+    create: false
+    delete: false
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    files:
+      - label: General
+        name: site
+        file: cms/_data/settings/site.json
+        fields:
+          - label: Title
+            name: title
+            widget: hidden
+            default: General
+          - hint: Full domain url (needed for a correct sitemap file)
+            name: domain
+            label: Domain
+            widget: string
+            required: false
+          - name: favicon
+            label: Favicon
+            widget: image
+            allow_multiple: false
+            required: false
+          - name: apple_touch_icon
+            label: Apple Touch Icon
+            widget: image
+            allow_multiple: false
+            required: false
+          - name: header_additional_content
+            label: Additional Content Header
+            hint: Content here will be placed before </head> tag
+            widget: text
+            required: false
+          - name: footer_additional_content
+            label: Additional Content Footer
+            hint: Content here will be placed before </body> tag
+            widget: text
+            required: false
+          - name: images_optimization
+            label: Images Optimization
+            widget: object
+            collapsed: false
+            fields:
+              - label: Image Formats
+                name: formats
+                widget: select
+                multiple: true
+                options:
+                  - label: Avif
+                    value: avif
+                  - label: Webp
+                    value: webp
+              - label: Image Dimensions
+                name: dimensions
+                widget: select
+                multiple: true
+                options:
+                  - label: '500'
+                    value: 500
+                  - label: '800'
+                    value: 800
+                  - label: '1080'
+                    value: 1080
+                  - label: '1600'
+                    value: 1600
+                  - label: '2000'
+                    value: 2000
+                  - label: '2600'
+                    value: 2600
+      - label: Colors
+        name: colors
+        file: cms/_data/colors.json
+        fields:
+          - label: Title
+            name: title
+            widget: hidden
+            default: Colors
+      - label: Texts
+        name: texts
+        file: cms/_data/texts.json
+        fields:
+          - label: Title
+            name: title
+            widget: hidden
+            default: Texts
+          - hint: 'Original text: Immersive Solutions, key: c212ab5'
+            label: Text
+            name: c212ab5
+            widget: string
+          - hint: 'Original text: Industries, key: -15a310e4'
+            label: Text
+            name: '-15a310e4'
+            widget: string
+          - hint: 'Original text: our work, key: -3a1489b'
+            label: Text
+            name: '-3a1489b'
+            widget: string
+          - hint: 'Original text: insights, key: 207e37db'
+            label: Text
+            name: 207e37db
+            widget: string
+          - hint: 'Original text: Careers, key: -7bc27f6b'
+            label: Text
+            name: '-7bc27f6b'
+            widget: string
+          - hint: 'Original text: Contact, key: -64104400'
+            label: Text
+            name: '-64104400'
+            widget: string
+          - hint: >-
+              Original text: DESIGn "IMmERSIVE INTERNET" FOR THE WORLD., key:
+              -79bcfd5a
+            label: Text
+            name: '-79bcfd5a'
+            widget: string
+          - hint: >-
+              Original text: We create Immersive XR [Extended Reality]
+              experiences for innovative brands by blending the power of Human
+              Imagination & Deep Tech., key: 561da9b5
+            label: Text
+            name: 561da9b5
+            widget: text
+          - hint: 'Original text: No items found., key: 3d503d2b'
+            label: Text
+            name: 3d503d2b
+            widget: string
+          - hint: 'Original text: Empty Component, key: 46ac21aa'
+            label: Text
+            name: 46ac21aa
+            widget: string
+          - hint: 'Original text: Know More, key: -30663036'
+            label: Text
+            name: '-30663036'
+            widget: string
+          - hint: 'Original text: Contact Us, key: 7f2746de'
+            label: Text
+            name: 7f2746de
+            widget: string
+          - hint: 'Original text: who we are, key: 420a88a4'
+            label: Text
+            name: 420a88a4
+            widget: string
+          - hint: 'Original text: Our Vision, key: -6243b084'
+            label: Text
+            name: '-6243b084'
+            widget: string
+          - hint: >-
+              Original text: Our core vision is to improve the currently
+              available Computer Vision libraries to enhance the overall AR
+              experience., key: 429cd4b2
+            label: Text
+            name: 429cd4b2
+            widget: text
+          - hint: 'Original text: future ready, key: -ff822fa'
+            label: Text
+            name: '-ff822fa'
+            widget: string
+          - hint: >-
+              Original text: By focussing on webAR, we make sure that our AR
+              solutions are compatible with the future & accessible to all.,
+              key: -7109b6a3
+            label: Text
+            name: '-7109b6a3'
+            widget: text
+          - hint: 'Original text: global reach, key: -7e7c954a'
+            label: Text
+            name: '-7e7c954a'
+            widget: string
+          - hint: >-
+              Original text: We are on a mission to design Augmented Reality
+              experiences for the next billion users across the globe., key:
+              -13375503
+            label: Text
+            name: '-13375503'
+            widget: text
+          - hint: 'Original text: empty space, key: -1091638d'
+            label: Text
+            name: '-1091638d'
+            widget: string
+          - hint: 'Original text: know more, key: 58363bca'
+            label: Text
+            name: 58363bca
+            widget: string
+          - hint: 'Original text: contact us, key: 8556e9e'
+            label: Text
+            name: 8556e9e
+            widget: string
+          - hint: 'Original text: what is xr?, key: a749d6b'
+            label: Text
+            name: a749d6b
+            widget: string
+          - hint: 'Original text: Our AR Solutions, key: 7d28853f'
+            label: Text
+            name: 7d28853f
+            widget: string
+          - hint: 'Original text: Add text here, key: 1d7e624'
+            label: Text
+            name: 1d7e624
+            widget: string
+          - hint: 'Original text: Paragraph, key: -145e16b2'
+            label: Text
+            name: '-145e16b2'
+            widget: string
+          - hint: 'Original text: Empty Space, key: 51155433'
+            label: Text
+            name: '51155433'
+            widget: string
+          - hint: 'Original text: Know more, key: -3057a456'
+            label: Text
+            name: '-3057a456'
+            widget: string
+          - hint: 'Original text: Our Work, key: 2a8fa5'
+            label: Text
+            name: 2a8fa5
+            widget: string
+          - hint: 'Original text: stay in the loop., key: 3a2272c7'
+            label: Text
+            name: 3a2272c7
+            widget: string
+          - hint: 'Original text: I have read and agree to the , key: 388bdaae'
+            label: Text
+            name: 388bdaae
+            widget: string
+          - hint: 'Original text: Privacy Policy, key: -3fbde6f6'
+            label: Text
+            name: '-3fbde6f6'
+            widget: string
+          - hint: >-
+              Original text: Thank you! Your submission has been received!, key:
+              5a0ea5a1
+            label: Text
+            name: 5a0ea5a1
+            widget: string
+          - hint: >-
+              Original text: Oops! Something went wrong while submitting the
+              form., key: -7c112e99
+            label: Text
+            name: '-7c112e99'
+            widget: string
+          - hint: 'Original text: SOCIAL, key: -6de4f493'
+            label: Text
+            name: '-6de4f493'
+            widget: string
+          - hint: 'Original text: Instagram, key: 792b2792'
+            label: Text
+            name: 792b2792
+            widget: string
+          - hint: 'Original text: Tiktok, key: -6aaee2e6'
+            label: Text
+            name: '-6aaee2e6'
+            widget: string
+          - hint: 'Original text: Linkedin, key: 4b0ff51e'
+            label: Text
+            name: 4b0ff51e
+            widget: string
+          - hint: 'Original text: Medium, key: -76dc846b'
+            label: Text
+            name: '-76dc846b'
+            widget: string
+          - hint: 'Original text: contact, key: 38b72420'
+            label: Text
+            name: 38b72420
+            widget: string
+          - hint: 'Original text: 456 Oakwood Avenue,, key: -1d928867'
+            label: Text
+            name: '-1d928867'
+            widget: string
+          - hint: 'Original text: San Francisco, CA 94110, key: 163e8767'
+            label: Text
+            name: '163e8767'
+            widget: string
+          - hint: 'Original text: contact@synapse.ai, key: 6e81b2cd'
+            label: Text
+            name: 6e81b2cd
+            widget: string
+          - hint: 'Original text: May 15th - 21st, key: -50f1cfe0'
+            label: Text
+            name: '-50f1cfe0'
+            widget: string
+          - hint: 'Original text: San Francisco + Online, key: -58f32af8'
+            label: Text
+            name: '-58f32af8'
+            widget: string
+          - hint: 'Original text: navigate, key: 7d518571'
+            label: Text
+            name: 7d518571
+            widget: string
+          - hint: 'Original text: Home, key: 2268ff'
+            label: Text
+            name: 2268ff
+            widget: string
+          - hint: 'Original text: Schedule, key: -25bf0949'
+            label: Text
+            name: '-25bf0949'
+            widget: string
+          - hint: 'Original text: Speakers, key: -7b61fb8c'
+            label: Text
+            name: '-7b61fb8c'
+            widget: string
+          - hint: 'Original text: Location, key: 752a03d5'
+            label: Text
+            name: 752a03d5
+            widget: string
+          - hint: 'Original text: Sponsors, key: -69968b47'
+            label: Text
+            name: '-69968b47'
+            widget: string
+          - hint: 'Original text: News, key: 24fef3'
+            label: Text
+            name: 24fef3
+            widget: string
+          - hint: 'Original text: Legal, key: 45e7299'
+            label: Text
+            name: '45e7299'
+            widget: string
+          - hint: 'Original text: INFO, key: 225cae'
+            label: Text
+            name: 225cae
+            widget: string
+          - hint: 'Original text: Style Guide, key: -7aba473'
+            label: Text
+            name: '-7aba473'
+            widget: string
+          - hint: 'Original text: Getting Started, key: 3766ef65'
+            label: Text
+            name: 3766ef65
+            widget: string
+          - hint: 'Original text: Changelog, key: -31d02e8c'
+            label: Text
+            name: '-31d02e8c'
+            widget: string
+          - hint: 'Original text: Licenses, key: 37fa6872'
+            label: Text
+            name: 37fa6872
+            widget: string
+          - hint: 'Original text: © Copyright , key: 25976530'
+            label: Text
+            name: '25976530'
+            widget: string
+          - hint: 'Original text: Medium Rare, key: -6702d593'
+            label: Text
+            name: '-6702d593'
+            widget: string
+          - hint: 'Original text:  All Rights Reserved., key: -1c83bc24'
+            label: Text
+            name: '-1c83bc24'
+            widget: string
+          - hint: 'Original text: For more designs visit:, key: 107a5a8e'
+            label: Text
+            name: 107a5a8e
+            widget: string
+          - hint: 'Original text: mediumrare.shop, key: 622c60ed'
+            label: Text
+            name: 622c60ed
+            widget: string
+          - hint: 'Original text: Protected Page, key: -11d4bbff'
+            label: Text
+            name: '-11d4bbff'
+            widget: string
+          - hint: >-
+              Original text: Please enter your password to continue., key:
+              7a70a5d8
+            label: Text
+            name: 7a70a5d8
+            widget: string
+          - hint: 'Original text: Password, key: 4c641ebb'
+            label: Text
+            name: 4c641ebb
+            widget: string
+          - hint: >-
+              Original text: Incorrect password. Please try again., key:
+              -f5c4b5f
+            label: Text
+            name: '-f5c4b5f'
+            widget: string
+          - hint: 'Original text: 404 - Page Not Found, key: 41105dbf'
+            label: Text
+            name: 41105dbf
+            widget: string
+          - hint: >-
+              Original text: The page you are looking for doesn't exist or has
+              been moved., key: 583f3656
+            label: Text
+            name: 583f3656
+            widget: string
+          - hint: 'Original text: back to home, key: -7e7f8ad5'
+            label: Text
+            name: '-7e7f8ad5'
+            widget: string
+          - hint: 'Original text: app based ar, key: 10776add'
+            label: Text
+            name: 10776add
+            widget: string
+          - hint: 'Original text: may 15th – 21st, key: 5931581a'
+            label: Text
+            name: 5931581a
+            widget: string
+          - hint: 'Original text: san francisco + Online, key: a006cc8'
+            label: Text
+            name: a006cc8
+            widget: string
+          - hint: 'Original text: buy tickets, key: 66c02b4d'
+            label: Text
+            name: 66c02b4d
+            widget: string
+          - hint: 'Original text: see schedule, key: -d0a1c3c'
+            label: Text
+            name: '-d0a1c3c'
+            widget: string
+          - hint: 'Original text: EVENT PARTNERS, key: -6878c46f'
+            label: Text
+            name: '-6878c46f'
+            widget: string
+          - hint: >-
+              Original text: Bend is a leading provider of AI-powered solutions
+              that enable businesses to gain deeper insights into their
+              customers, products, and operations. Their solutions include
+              predictive analytics, data visualization, and machine learning,
+              which help organizations make better data-driven decisions., key:
+              -725be5ae
+            label: Text
+            name: '-725be5ae'
+            widget: text
+          - hint: 'Original text: bend.com, key: 64553b4c'
+            label: Text
+            name: 64553b4c
+            widget: string
+          - hint: >-
+              Original text: Loop is a software company that specializes in
+              developing AI-powered chatbots for customer service and support.
+              Their chatbots use natural language processing and machine
+              learning to provide personalized and efficient customer service,
+              which saves time and resources for businesses., key: -5d2f5436
+            label: Text
+            name: '-5d2f5436'
+            widget: text
+          - hint: 'Original text: loopcontent.ai, key: 3e39cf61'
+            label: Text
+            name: 3e39cf61
+            widget: string
+          - hint: >-
+              Original text: Nascent is a leading provider of AI-powered
+              solutions for supply chain management. Their solutions include
+              predictive analytics, optimization, and automation, which help
+              organizations optimize their supply chain operations, reduce
+              costs, and increase efficiency. Naiscent's expertise in AI and
+              supply chain management has helped numerous businesses gain a
+              competitive advantage in their industry., key: -eea0717
+            label: Text
+            name: '-eea0717'
+            widget: text
+          - hint: 'Original text: nascent.studio, key: -15308444'
+            label: Text
+            name: '-15308444'
+            widget: string
+          - hint: >-
+              Original text: Marigold is an AI-powered personalization platform
+              that helps e-commerce businesses optimize their customer
+              experience. Their platform uses AI to analyze customer data and
+              provide personalized product recommendations and marketing
+              messages, which increase customer engagement and sales., key:
+              76aefb94
+            label: Text
+            name: 76aefb94
+            widget: text
+          - hint: 'Original text: marigold.ai, key: -5ccb54b5'
+            label: Text
+            name: '-5ccb54b5'
+            widget: string
+          - hint: 'Original text: arts & entertainment, key: -7510d8a2'
+            label: Text
+            name: '-7510d8a2'
+            widget: string
+          - hint: 'Original text: no posts published yet., key: -283e61dc'
+            label: Text
+            name: '-283e61dc'
+            widget: string
+          - hint: 'Original text: SYNAPSE is a , key: -18647ee2'
+            label: Text
+            name: '-18647ee2'
+            widget: string
+          - hint: 'Original text:  template., key: -b3192c'
+            label: Text
+            name: '-b3192c'
+            widget: string
+          - hint: 'Original text: Explore more great , key: 487ee031'
+            label: Text
+            name: 487ee031
+            widget: string
+          - hint: 'Original text: templates for Webflow, key: 6364ba4'
+            label: Text
+            name: 6364ba4
+            widget: string
+          - hint: 'Original text: , Framer + Figma., key: 78fba952'
+            label: Text
+            name: 78fba952
+            widget: string
+          - hint: 'Original text: news, key: 338ad3'
+            label: Text
+            name: 338ad3
+            widget: string
+          - hint: 'Original text: event updates and insight., key: -658276e5'
+            label: Text
+            name: '-658276e5'
+            widget: string
+          - hint: 'Original text: changelog, key: 56bdb194'
+            label: Text
+            name: 56bdb194
+            widget: string
+          - hint: >-
+              Original text: A summary of fixes and content updates made since
+              release., key: -62e2e19b
+            label: Text
+            name: '-62e2e19b'
+            widget: string
+          - hint: 'Original text: May 15th 2023, key: 1f5c076c'
+            label: Text
+            name: 1f5c076c
+            widget: string
+          - hint: "Original text: •\_Initial release of Synapse., key: -33078505"
+            label: Text
+            name: '-33078505'
+            widget: string
+          - hint: 'Original text: get in touch with the synapse team., key: -39e2e7dd'
+            label: Text
+            name: '-39e2e7dd'
+            widget: string
+          - hint: 'Original text: For general enquiries:, key: bcb22c8'
+            label: Text
+            name: bcb22c8
+            widget: string
+          - hint: 'Original text: +613 28271 9128, key: -55112a15'
+            label: Text
+            name: '-55112a15'
+            widget: string
+          - hint: 'Original text: enquiries@linkevents.io, key: 2a9ec202'
+            label: Text
+            name: 2a9ec202
+            widget: string
+          - hint: 'Original text: cv custom solutions, key: 19600038'
+            label: Text
+            name: '19600038'
+            widget: string
+          - hint: 'Original text: join us online or in-person., key: 6d64616d'
+            label: Text
+            name: 6d64616d
+            widget: string
+          - hint: 'Original text: in-person, key: -7bd12b03'
+            label: Text
+            name: '-7bd12b03'
+            widget: string
+          - hint: 'Original text: get directions, key: 2063dfde'
+            label: Text
+            name: 2063dfde
+            widget: string
+          - hint: 'Original text: website, key: 48f9e09b'
+            label: Text
+            name: 48f9e09b
+            widget: string
+          - hint: 'Original text: Share this article:, key: 7dc18ea5'
+            label: Text
+            name: 7dc18ea5
+            widget: string
+          - hint: 'Original text: Twitter, key: 2c9a4253'
+            label: Text
+            name: 2c9a4253
+            widget: string
+          - hint: 'Original text: medium, key: -4041708b'
+            label: Text
+            name: '-4041708b'
+            widget: string
+          - hint: 'Original text: substack, key: -7ada13b8'
+            label: Text
+            name: '-7ada13b8'
+            widget: string
+          - hint: 'Original text: What’s a Rich Text element?, key: -3c0dda4d'
+            label: Text
+            name: '-3c0dda4d'
+            widget: string
+          - hint: >-
+              Original text: The rich text element allows you to create and
+              format headings, paragraphs, blockquotes, images, and video all in
+              one place instead of having to add and format them individually.
+              Just double-click and easily create content., key: 2e633c6a
+            label: Text
+            name: 2e633c6a
+            widget: text
+          - hint: 'Original text: Static and dynamic content editing, key: 57fa6135'
+            label: Text
+            name: 57fa6135
+            widget: string
+          - hint: >-
+              Original text: A rich text element can be used with static or
+              dynamic content. For static content, just drop it into any page
+              and begin editing. For dynamic content, add a rich text field to
+              any collection and then connect a rich text element to that field
+              in the settings panel. Voila!, key: -a016b40
+            label: Text
+            name: '-a016b40'
+            widget: text
+          - hint: >-
+              Original text: How to customize formatting for each rich text,
+              key: -4bffb26e
+            label: Text
+            name: '-4bffb26e'
+            widget: string
+          - hint: >-
+              Original text: Headings, paragraphs, blockquotes, figures, images,
+              and figure captions can all be styled after a class is added to
+              the rich text element using the "When inside of" nested selector
+              system., key: -43ba1153
+            label: Text
+            name: '-43ba1153'
+            widget: text
+          - hint: >-
+              Original text: This guide covers the basic usage of the template
+              as well as an overview of the template structure., key: 20e5ab1b
+            label: Text
+            name: 20e5ab1b
+            widget: text
+          - hint: 'Original text: Blank Starter Template, key: 46e97297'
+            label: Text
+            name: '46e97297'
+            widget: string
+          - hint: >-
+              Original text: Inside the "Template" directory, you'll find a page
+              titled "Blank Starter Template". This template includes a
+              navigation bar and a footer - the ideal starting point for your
+              pages., key: -370d6995
+            label: Text
+            name: '-370d6995'
+            widget: text
+          - hint: >-
+              Original text: 1. Duplicate the Blank Starter Page template, key:
+              1cd19a47
+            label: Text
+            name: 1cd19a47
+            widget: string
+          - hint: "Original text: Note:\_Be sure to change the Parent Folder to the desired location., key: 79a866bb"
+            label: Text
+            name: 79a866bb
+            widget: string
+          - hint: "Original text: 2.\_Copy and paste blocks to the newly created page:, key: 1fa7dce9"
+            label: Text
+            name: 1fa7dce9
+            widget: string
+          - hint: >-
+              Original text: Copy Sections from any page, then paste them into
+              the body of your newly created page. Also you may copy sections
+              from any page listed on the main landing page., key: -15fe77fa
+            label: Text
+            name: '-15fe77fa'
+            widget: text
+          - hint: 'Original text: The, key: 14851'
+            label: Text
+            name: '14851'
+            widget: string
+          - hint: 'Original text:  Style Guide, key: -1176f893'
+            label: Text
+            name: '-1176f893'
+            widget: string
+          - hint: >-
+              Original text:  page demonstrates the display of all base elements
+              found in the template and is a good place to start familiarising
+              yourself with the template., key: 3012f73
+            label: Text
+            name: 3012f73
+            widget: text
+          - hint: >-
+              Original text: You'll also find a section demonstrating how to
+              correctly use the associated utility classes., key: -6f444cd9
+            label: Text
+            name: '-6f444cd9'
+            widget: text
+          - hint: 'Original text: Editing Typography Styles, key: 255b84b'
+            label: Text
+            name: 255b84b
+            widget: string
+          - hint: 'Original text: Setting heading styles, key: c5f98b0'
+            label: Text
+            name: c5f98b0
+            widget: string
+          - hint: "Original text: Instead of using classes, you must click the header then in the Selector drop-down where you would type in the class name, select “All H1 Headings” then make your change. \_Same goes for all base heading elements. Click the element, choose “All heading 5”, then any changes you make to that will be reflected across all in the site., key: -477f653f"
+            label: Text
+            name: '-477f653f'
+            widget: text
+          - hint: >-
+              Original text: Setting Body Text and paragraph styles, key:
+              -25e178fe
+            label: Text
+            name: '-25e178fe'
+            widget: string
+          - hint: >-
+              Original text: Follow the same procedure for body text and
+              paragraphs - which are specified on the , key: -547fd2bf
+            label: Text
+            name: '-547fd2bf'
+            widget: string
+          - hint: 'Original text: Body, key: 1fadc2'
+            label: Text
+            name: 1fadc2
+            widget: string
+          - hint: "Original text:  element. \_Select the body element, and from the Selector dropdown, choose “Body (All Pages)” and change the typography settings for that element. \_These styles then flow through to the paragraphs and other generic text elements in the site., key: 131e80b4"
+            label: Text
+            name: 131e80b4
+            widget: text
+          - hint: 'Original text: Grids, key: 41dedcd'
+            label: Text
+            name: 41dedcd
+            widget: string
+          - hint: "Original text: Content is structured using the CSS\_grid layout property and uses various Gap modifier classes to set the desired amount of spacing between grid items. This spacing is based on the base line height unit (24px), as such when you see a class such as \"Gap 2\" the \"2\" in this case will mean that the grid gap is 48px, as this is 2 times the base line height unit of 24px. Note:\_the default space between both the , key: 77461b51"
+            label: Text
+            name: 77461b51
+            widget: text
+          - hint: 'Original text: Columns, key: -642bd043'
+            label: Text
+            name: '-642bd043'
+            widget: string
+          - hint: 'Original text:  and , key: 1f0b149'
+            label: Text
+            name: 1f0b149
+            widget: string
+          - hint: 'Original text: Rows, key: 26f5f9'
+            label: Text
+            name: 26f5f9
+            widget: string
+          - hint: 'Original text:  classes is 24px., key: 3eb3a08'
+            label: Text
+            name: 3eb3a08
+            widget: string
+          - hint: >-
+              Original text: The class reference for grids is as follows:, key:
+              -39e42cda
+            label: Text
+            name: '-39e42cda'
+            widget: string
+          - hint: 'Original text: Columns , key: -214e37fd'
+            label: Text
+            name: '-214e37fd'
+            widget: string
+          - hint: >-
+              Original text: - this class will set the grid layout so that
+              children are structured in columns., key: -74f8228b
+            label: Text
+            name: '-74f8228b'
+            widget: string
+          - hint: >-
+              Original text:  - this class will set the grid layout so that
+              children are structure in rows., key: -6f5eb021
+            label: Text
+            name: '-6f5eb021'
+            widget: string
+          - hint: 'Original text: Modifier classes are as follows:, key: -1d79b429'
+            label: Text
+            name: '-1d79b429'
+            widget: string
+          - hint: 'Original text: Gap 0.75x, key: -26a40f4e'
+            label: Text
+            name: '-26a40f4e'
+            widget: string
+          - hint: >-
+              Original text:  - The gap between grid items will be 18px, key:
+              7ebd7294
+            label: Text
+            name: 7ebd7294
+            widget: string
+          - hint: 'Original text: Gap 1.5x, key: -64576b16'
+            label: Text
+            name: '-64576b16'
+            widget: string
+          - hint: >-
+              Original text:  - The gap between grid items will be 36px, key:
+              7ebe53d0
+            label: Text
+            name: 7ebe53d0
+            widget: string
+          - hint: 'Original text: Gap 2x, key: 7eb26430'
+            label: Text
+            name: 7eb26430
+            widget: string
+          - hint: >-
+              Original text:  - The gap between grid items will be 48px, key:
+              7ebecfb1
+            label: Text
+            name: 7ebecfb1
+            widget: string
+          - hint: 'Original text: Gap 3x, key: 7eb2644f'
+            label: Text
+            name: 7eb2644f
+            widget: string
+          - hint: >-
+              Original text:  - The gap between grid items will be 72px, key:
+              7ec01648
+            label: Text
+            name: 7ec01648
+            widget: string
+          - hint: 'Original text: Containers, key: 7f7a2032'
+            label: Text
+            name: 7f7a2032
+            widget: string
+          - hint: >-
+              Original text: The template uses 5 container sizes to house the
+              contents in most sections. For your convenience, you can use these
+              classes to easily contain content in your sections:, key: 2aec304c
+            label: Text
+            name: 2aec304c
+            widget: text
+          - hint: 'Original text: Container - XS:, key: -7dec0a53'
+            label: Text
+            name: '-7dec0a53'
+            widget: string
+          - hint: >-
+              Original text:  This container limits content to 452px, key:
+              -10585ede
+            label: Text
+            name: '-10585ede'
+            widget: string
+          - hint: 'Original text: Container - M:, key: -c51f141'
+            label: Text
+            name: '-c51f141'
+            widget: string
+          - hint: >-
+              Original text:  This container limits content to 690px, key:
+              -103a65e2
+            label: Text
+            name: '-103a65e2'
+            widget: string
+          - hint: 'Original text: Additionally, use the class , key: -599cad08'
+            label: Text
+            name: '-599cad08'
+            widget: string
+          - hint: 'Original text: Align Center , key: 65fce410'
+            label: Text
+            name: 65fce410
+            widget: string
+          - hint: >-
+              Original text: to align the container in the center of its parent
+              element., key: -a66108a
+            label: Text
+            name: '-a66108a'
+            widget: string
+          - hint: 'Original text: Back To Top Button, key: 71c35fe9'
+            label: Text
+            name: 71c35fe9
+            widget: string
+          - hint: >-
+              Original text: Ensure that the Back To Top Button symbol is the
+              first element inside the body., key: -22eee645
+            label: Text
+            name: '-22eee645'
+            widget: string
+          - hint: 'Original text: The Back To Top Button symbol., key: 182f658e'
+            label: Text
+            name: 182f658e
+            widget: string
+          - hint: >-
+              Original text: Then, ensure the page has a Page Scrolled
+              interaction with the , key: 160adce2
+            label: Text
+            name: 160adce2
+            widget: string
+          - hint: 'Original text: Hide Back To Top Button , key: -71beca67'
+            label: Text
+            name: '-71beca67'
+            widget: string
+          - hint: >-
+              Original text: interaction activates when the page scrolls up, and
+              the , key: 7405f88b
+            label: Text
+            name: 7405f88b
+            widget: string
+          - hint: 'Original text: Show Back To Top Button, key: -1face34'
+            label: Text
+            name: '-1face34'
+            widget: string
+          - hint: >-
+              Original text:  interaction activates when the page scrolls down.,
+              key: b659c68
+            label: Text
+            name: b659c68
+            widget: string
+          - hint: 'Original text: The Page scrolled interaction, key: 5deb31e0'
+            label: Text
+            name: 5deb31e0
+            widget: string
+          - hint: "Original text: SVG\_Icon &\_SVG\_Divider Colors, key: 38143ef8"
+            label: Text
+            name: 38143ef8
+            widget: string
+          - hint: "Original text: Unfortunately Webflow does not allow dynamic coloring of SVG\_icons and dividers. To change the icon or divider color from the default:, key: 68f3877b"
+            label: Text
+            name: 68f3877b
+            widget: text
+          - hint: "Original text: Download the icon SVG\_file, key: 6a4a3b38"
+            label: Text
+            name: 6a4a3b38
+            widget: string
+          - hint: "Original text: Open the SVG\_file in a text editor, key: 21d59569"
+            label: Text
+            name: 21d59569
+            widget: string
+          - hint: >-
+              Original text: Change the hex value to your desired color, key:
+              -5c9881fe
+            label: Text
+            name: '-5c9881fe'
+            widget: string
+          - hint: 'Original text: Save, and reupload the icon., key: -772bb6cc'
+            label: Text
+            name: '-772bb6cc'
+            widget: string
+          - hint: 'Original text: Custom Code, key: -a1752c4'
+            label: Text
+            name: '-a1752c4'
+            widget: string
+          - hint: >-
+              Original text: Inside the Project Settings, in the Custom Code tab
+              you'll notice some style code has been added to the head of each
+              page:, key: -6514cd55
+            label: Text
+            name: '-6514cd55'
+            widget: text
+          - hint: 'Original text: Font Rendering Custom Code, key: 2f5e6497'
+            label: Text
+            name: 2f5e6497
+            widget: string
+          - hint: >-
+              Original text: This code is to ensure that the text rendering is
+              smooth and consistent across all browsers. It does not require any
+              action on your part., key: -53b07218
+            label: Text
+            name: '-53b07218'
+            widget: text
+          - hint: 'Original text: More Information, key: 4c6cf0e1'
+            label: Text
+            name: 4c6cf0e1
+            widget: string
+          - hint: >-
+              Original text: For further information, please consult the , key:
+              9c54a6c
+            label: Text
+            name: 9c54a6c
+            widget: string
+          - hint: 'Original text: Webflow documentation, key: -12932284'
+            label: Text
+            name: '-12932284'
+            widget: string
+          - hint: 'Original text:  or reach out to us via the , key: 43efbe1a'
+            label: Text
+            name: 43efbe1a
+            widget: string
+          - hint: 'Original text: our support page., key: -40cba5e6'
+            label: Text
+            name: '-40cba5e6'
+            widget: string
+          - hint: 'Original text: The Future of Intelligence., key: -70bb4f8c'
+            label: Text
+            name: '-70bb4f8c'
+            widget: string
+          - hint: 'Original text: Ethics, key: 7c51e680'
+            label: Text
+            name: 7c51e680
+            widget: string
+          - hint: >-
+              Original text: Ethical considerations are critical to the
+              development and deployment of AI technology. That's why we've
+              dedicated a significant portion of the event to exploring the
+              ethical implications of AI and how they can be addressed., key:
+              -7a72aee7
+            label: Text
+            name: '-7a72aee7'
+            widget: text
+          - hint: 'Original text: Leadership, key: -421bb11b'
+            label: Text
+            name: '-421bb11b'
+            widget: string
+          - hint: >-
+              Original text: Our keynote speakers and workshop leaders will
+              provide thought-provoking insights and practical guidance on how
+              to develop and deploy AI systems that are responsible,
+              transparent, and aligned with human values., key: 69ab5cf4
+            label: Text
+            name: 69ab5cf4
+            widget: text
+          - hint: 'Original text: innovation, key: 49052565'
+            label: Text
+            name: '49052565'
+            widget: string
+          - hint: >-
+              Original text: Synapse will highlight the latest advances in AI
+              and their potential impact on businesses, industries, and society.
+              Attendees will learn about the latest trends in AI development and
+              how to leverage these trends to drive innovation in their own
+              organizations., key: -3b43df0f
+            label: Text
+            name: '-3b43df0f'
+            widget: text
+          - hint: 'Original text: workshops + discussion, key: -5be04cef'
+            label: Text
+            name: '-5be04cef'
+            widget: string
+          - hint: 'Original text: and much more., key: 5c48b78f'
+            label: Text
+            name: 5c48b78f
+            widget: string
+          - hint: 'Original text: Meet Speakers, key: 432ce00d'
+            label: Text
+            name: 432ce00d
+            widget: string
+          - hint: >-
+              Original text: explore the frontiers of AI technology., key:
+              -61eed243
+            label: Text
+            name: '-61eed243'
+            widget: string
+          - hint: >-
+              Original text: Explore the frontiers of AI technology and its
+              ethical implications. Join us at Synapse, a two-day event that
+              brings together luminaries in the industry to discuss the future
+              of AI innovation and ethics., key: 2fc0421f
+            label: Text
+            name: 2fc0421f
+            widget: text
+          - hint: 'Original text: online, key: -3c5549ad'
+            label: Text
+            name: '-3c5549ad'
+            widget: string
+          - hint: 'Original text: +, key: 2b'
+            label: Text
+            name: 2b
+            widget: string
+          - hint: 'Original text: In-Person, key: -3afa1f03'
+            label: Text
+            name: '-3afa1f03'
+            widget: string
+          - hint: 'Original text: about location, key: -f1cf518'
+            label: Text
+            name: '-f1cf518'
+            widget: string
+          - hint: 'Original text: proudly, key: -126ab777'
+            label: Text
+            name: '-126ab777'
+            widget: string
+          - hint: 'Original text: sponsored, key: -40acfec7'
+            label: Text
+            name: '-40acfec7'
+            widget: string
+          - hint: 'Original text: by, key: c57'
+            label: Text
+            name: c57
+            widget: string
+          - hint: 'Original text: meet our sponsors, key: 39aede26'
+            label: Text
+            name: 39aede26
+            widget: string
+          - hint: 'Original text: hospitality, key: -c13c7cc'
+            label: Text
+            name: '-c13c7cc'
+            widget: string
+          - hint: 'Original text: industry 4.0 solutions, key: 1fe2ecae'
+            label: Text
+            name: 1fe2ecae
+            widget: string
+          - hint: >-
+              Original text: Synapse brings together some of the most
+              distinguished and accomplished experts in the field of AI, who
+              will share their insights, experiences, and perspectives on the
+              latest advances and ethical implications of AI technology., key:
+              -1b4a3c57
+            label: Text
+            name: '-1b4a3c57'
+            widget: text
+          - hint: 'Original text: meet speakers, key: fb34c0d'
+            label: Text
+            name: fb34c0d
+            widget: string
+          - hint: 'Original text: legal, key: 62162b9'
+            label: Text
+            name: 62162b9
+            widget: string
+          - hint: |-
+              Original text: Last updated
+                            23.03.2023, key: 26a3d536
+            label: Text
+            name: 26a3d536
+            widget: string
+          - hint: >-
+              Original text: Synapse is committed to protecting the privacy of
+              all visitors to our Site, as well as our event attendees, and we
+              have created this Privacy Policy to explain our practices
+              regarding the collection, use, and disclosure of personal
+              information., key: -a1db1a3
+            label: Text
+            name: '-a1db1a3'
+            widget: text
+          - hint: >-
+              Original text: Please read this Privacy Policy carefully before
+              using the Site or participating in our events. By using the Site,
+              attending our events, or otherwise providing us with your personal
+              information, you agree to the terms of this Privacy Policy., key:
+              63cab71
+            label: Text
+            name: 63cab71
+            widget: text
+          - hint: 'Original text: Information Collection, key: 56ed6652'
+            label: Text
+            name: 56ed6652
+            widget: string
+          - hint: >-
+              Original text: We collect personal information that you
+              voluntarily provide to us when you register for the event, make a
+              purchase, sign up for our newsletter, or communicate with us via
+              email or other means. This information may include your name,
+              email address, phone number, postal address, and payment
+              information., key: 13851528
+            label: Text
+            name: '13851528'
+            widget: text
+          - hint: >-
+              Original text: We may also collect non-personally identifiable
+              information automatically when you visit the Site, such as your IP
+              address, browser type, device type, operating system, and browsing
+              history. This information helps us to improve the Site and better
+              understand our users' needs., key: -77b3f337
+            label: Text
+            name: '-77b3f337'
+            widget: text
+          - hint: 'Original text: Use of Information, key: -7ef393e4'
+            label: Text
+            name: '-7ef393e4'
+            widget: string
+          - hint: >-
+              Original text: We use your personal information for the following
+              purposes:, key: -781bbea2
+            label: Text
+            name: '-781bbea2'
+            widget: string
+          - hint: >-
+              Original text: To process your registration and facilitate your
+              participation in the event., key: -2f00e283
+            label: Text
+            name: '-2f00e283'
+            widget: string
+          - hint: >-
+              Original text: To send you updates, newsletters, and other
+              relevant information about the event., key: -34d03b70
+            label: Text
+            name: '-34d03b70'
+            widget: string
+          - hint: >-
+              Original text: To process and complete any transactions you make
+              on the Site., key: 2a4226d9
+            label: Text
+            name: 2a4226d9
+            widget: string
+          - hint: >-
+              Original text: To respond to your inquiries and provide customer
+              support., key: 766e3bc6
+            label: Text
+            name: 766e3bc6
+            widget: string
+          - hint: 'Original text: Information Sharing, key: -59a88a58'
+            label: Text
+            name: '-59a88a58'
+            widget: string
+          - hint: >-
+              Original text: We do not sell, rent, or share your personal
+              information with third parties for their marketing purposes
+              without your consent. We may share your personal information
+              with:, key: -2852bf43
+            label: Text
+            name: '-2852bf43'
+            widget: text
+          - hint: >-
+              Original text: Third-party service providers who assist us in
+              operating the Site, processing transactions, and providing
+              services related to the event. These providers are contractually
+              required to protect your personal information and use it only for
+              the specific purpose for which it was provided., key: -13a22002
+            label: Text
+            name: '-13a22002'
+            widget: text
+          - hint: >-
+              Original text: Law enforcement, government agencies, or other
+              authorized third parties as required by law, or in response to
+              legal requests or processes. In connection with a merger,
+              acquisition, or sale of assets, where the disclosure of your
+              information is necessary to complete the transaction., key:
+              -69cdb5fe
+            label: Text
+            name: '-69cdb5fe'
+            widget: text
+          - hint: 'Original text: Updates to this Privacy Policy, key: 5f95a1dd'
+            label: Text
+            name: 5f95a1dd
+            widget: string
+          - hint: >-
+              Original text: We may update this Privacy Policy from time to time
+              to reflect changes in our practices or applicable laws. We will
+              post the updated version on the Site and indicate the date of the
+              last update. Your continued use of the Site or participation in
+              our events after any changes to this Privacy Policy indicates your
+              acceptance of the updated terms., key: 1d049c21
+            label: Text
+            name: 1d049c21
+            widget: text
+          - hint: 'Original text: licenses, key: 34200452'
+            label: Text
+            name: '34200452'
+            widget: string
+          - hint: >-
+              Original text: All graphical assets in this template are licensed
+              for personal and commercial use. If you'd like to use a specific
+              asset, please check the license below., key: -28a268c6
+            label: Text
+            name: '-28a268c6'
+            widget: text
+          - hint: 'Original text: photography, key: 63a3b99d'
+            label: Text
+            name: 63a3b99d
+            widget: string
+          - hint: >-
+              Original text: All photography sourced from Unsplash and falls
+              under the , key: -11b94e75
+            label: Text
+            name: '-11b94e75'
+            widget: string
+          - hint: 'Original text: Unsplash License., key: 4e5deded'
+            label: Text
+            name: 4e5deded
+            widget: string
+          - hint: 'Original text: View Collection, key: 2c90b6f9'
+            label: Text
+            name: 2c90b6f9
+            widget: string
+          - hint: 'Original text: Typography, key: 5500514f'
+            label: Text
+            name: 5500514f
+            widget: string
+          - hint: >-
+              Original text: Both the Mona Sans and Big Shoulders Display
+              typefaces are licensed under the , key: -7739b720
+            label: Text
+            name: '-7739b720'
+            widget: string
+          - hint: 'Original text: Open Font License (OFL), key: -e1d9f9e'
+            label: Text
+            name: '-e1d9f9e'
+            widget: string
+          - hint: "Original text: \_and are free to use in your project., key: 4eb2b626"
+            label: Text
+            name: 4eb2b626
+            widget: string
+          - hint: 'Original text: Aa, key: 840'
+            label: Text
+            name: '840'
+            widget: string
+          - hint: 'Original text: Mona Sans, key: 59586fe'
+            label: Text
+            name: 59586fe
+            widget: string
+          - hint: 'Original text: Big Shoulders Display, key: 12ca8cf5'
+            label: Text
+            name: 12ca8cf5
+            widget: string
+          - hint: 'Original text: videos, key: -30ad84a8'
+            label: Text
+            name: '-30ad84a8'
+            widget: string
+          - hint: >-
+              Original text: All videos sourced from Pexels and falls under the
+              , key: -2e88db7
+            label: Text
+            name: '-2e88db7'
+            widget: string
+          - hint: 'Original text: Pexels License., key: 55948da4'
+            label: Text
+            name: 55948da4
+            widget: string
+          - hint: 'Original text: link exhibition center, key: 7517120'
+            label: Text
+            name: '7517120'
+            widget: string
+          - hint: 'Original text: San Francisco, key: 5bd02320'
+            label: Text
+            name: 5bd02320
+            widget: string
+          - hint: 'Original text: About the venue, key: -49f7e6f3'
+            label: Text
+            name: '-49f7e6f3'
+            widget: string
+          - hint: >-
+              Original text: The LINK Exhibition Centre is a premier event space
+              located in the heart of San Francisco. With its state-of-the-art
+              facilities and modern design, the venue is the perfect setting for
+              conferences, trade shows, and other large-scale events., key:
+              71a121ff
+            label: Text
+            name: 71a121ff
+            widget: text
+          - hint: >-
+              Original text: The centre offers a range of amenities, including
+              Wi-Fi, catering, and audiovisual equipment, to ensure that every
+              event is a success. With its convenient location and exceptional
+              service, the LINK Exhibition Centre is the ideal venue for hosting
+              the Synapse., key: 1ad4f650
+            label: Text
+            name: 1ad4f650
+            widget: text
+          - hint: 'Original text: address, key: -4468640c'
+            label: Text
+            name: '-4468640c'
+            widget: string
+          - hint: 'Original text: accomodation, key: 1bb94f41'
+            label: Text
+            name: 1bb94f41
+            widget: string
+          - hint: 'Original text: sago SF, key: 6ed11efd'
+            label: Text
+            name: 6ed11efd
+            widget: string
+          - hint: 'Original text: 675 Alhambra Avenue,, key: -65ecdcee'
+            label: Text
+            name: '-65ecdcee'
+            widget: string
+          - hint: 'Original text: aquay suites, key: -8298742'
+            label: Text
+            name: '-8298742'
+            widget: string
+          - hint: 'Original text: 1241 Valencia Terrace,, key: 267ba307'
+            label: Text
+            name: 267ba307
+            widget: string
+          - hint: 'Original text: the virtual show-floor, key: 68c52d80'
+            label: Text
+            name: 68c52d80
+            widget: string
+          - hint: 'Original text: synapse.ai, key: 44f5faad'
+            label: Text
+            name: 44f5faad
+            widget: string
+          - hint: 'Original text: About, key: 3c2336d'
+            label: Text
+            name: 3c2336d
+            widget: string
+          - hint: >-
+              Original text: The Synapse Online platform is a virtual space that
+              enables attendees to engage with the event remotely. The platform
+              provides access to a range of features, including live event
+              streams, virtual workshops, and Discord discussion channels.
+              Attendees can view the event streams from their computer or mobile
+              device, and participate in real-time Q&A sessions with speakers
+              and other attendees., key: -5702a15c
+            label: Text
+            name: '-5702a15c'
+            widget: text
+          - hint: 'Original text: event portal, key: 35223cb2'
+            label: Text
+            name: 35223cb2
+            widget: string
+          - hint: >-
+              Original text: Virtual workshops and interactive learning
+              experiences., key: 4fec7377
+            label: Text
+            name: 4fec7377
+            widget: string
+          - hint: 'Original text: visit portal, key: -6100d71f'
+            label: Text
+            name: '-6100d71f'
+            widget: string
+          - hint: 'Original text: social, key: -3577e893'
+            label: Text
+            name: '-3577e893'
+            widget: string
+          - hint: 'Original text: medtech solutions, key: -58b36a24'
+            label: Text
+            name: '-58b36a24'
+            widget: string
+          - hint: 'Original text: metaverse partner, key: -c777908'
+            label: Text
+            name: '-c777908'
+            widget: string
+          - hint: 'Original text: metaverse workshop, key: 38cb4d57'
+            label: Text
+            name: 38cb4d57
+            widget: string
+          - hint: >-
+              Original text: Designing "Immersive Internet" for the world., key:
+              30834aec
+            label: Text
+            name: 30834aec
+            widget: string
+          - hint: 'Original text: Contact US, key: 7f2746be'
+            label: Text
+            name: 7f2746be
+            widget: string
+          - hint: 'Original text: Demo 1, key: 79cc0154'
+            label: Text
+            name: 79cc0154
+            widget: string
+          - hint: 'Original text: demo 1, key: -4f98eacc'
+            label: Text
+            name: '-4f98eacc'
+            widget: string
+          - hint: 'Original text: Demo 2, key: 79cc0155'
+            label: Text
+            name: 79cc0155
+            widget: string
+          - hint: 'Original text: Demo 3, key: 79cc0156'
+            label: Text
+            name: 79cc0156
+            widget: string
+          - hint: 'Original text: Demo 4, key: 79cc0157'
+            label: Text
+            name: 79cc0157
+            widget: string
+          - hint: 'Original text: retail, key: -37b20efd'
+            label: Text
+            name: '-37b20efd'
+            widget: string
+          - hint: 'Original text: schedule, key: -29996d69'
+            label: Text
+            name: '-29996d69'
+            widget: string
+          - hint: 'Original text: day 01, key: -4fccfafb'
+            label: Text
+            name: '-4fccfafb'
+            widget: string
+          - hint: >-
+              Original text: ethical AI: Challenges and Opportunities, key:
+              -2f804338
+            label: Text
+            name: '-2f804338'
+            widget: string
+          - hint: 'Original text: 09:00AM, key: 4fb738fd'
+            label: Text
+            name: 4fb738fd
+            widget: string
+          - hint: 'Original text: welcome, key: 497f9b62'
+            label: Text
+            name: 497f9b62
+            widget: string
+          - hint: 'Original text: by ken maskall, key: -56c470e0'
+            label: Text
+            name: '-56c470e0'
+            widget: string
+          - hint: 'Original text: 09:30am, key: 4fb89a1a'
+            label: Text
+            name: 4fb89a1a
+            widget: string
+          - hint: 'Original text: KEYNOTE ADDRESS, key: 6b641565'
+            label: Text
+            name: 6b641565
+            widget: string
+          - hint: >-
+              Original text: Presented by renowned AI leader Ken Maskall,
+              followed by insightful panel discussions and workshops focused on
+              AI ethics, responsible innovation, and the integration of
+              artificial intelligence in various industries., key: 10bf61e6
+            label: Text
+            name: 10bf61e6
+            widget: text
+          - hint: 'Original text: 10:00AM, key: 7541d6a7'
+            label: Text
+            name: 7541d6a7
+            widget: string
+          - hint: >-
+              Original text: AI in Education: Shaping the Classroom of Tomorrow,
+              key: -1b3496fb
+            label: Text
+            name: '-1b3496fb'
+            widget: string
+          - hint: >-
+              Original text: Explore the exciting potential of AI in education,
+              and how it can be used to personalize learning, improve
+              educational outcomes, and create new opportunities for students
+              and educators alike., key: 51c6ee40
+            label: Text
+            name: 51c6ee40
+            widget: text
+          - hint: 'Original text: by Laura Davis, key: 38133869'
+            label: Text
+            name: '38133869'
+            widget: string
+          - hint: 'Original text: 12:00PM, key: 78ab89b6'
+            label: Text
+            name: 78ab89b6
+            widget: string
+          - hint: 'Original text: lunch, key: 628c32a'
+            label: Text
+            name: 628c32a
+            widget: string
+          - hint: >-
+              Original text: abacus restaruant, exhibition centre., key:
+              -7b6a0b4
+            label: Text
+            name: '-7b6a0b4'
+            widget: string
+          - hint: 'Original text: 01:30PM, key: 4211d2f3'
+            label: Text
+            name: 4211d2f3
+            widget: string
+          - hint: >-
+              Original text: AI for Good: Exploring Sustainable Applications,
+              key: -10624338
+            label: Text
+            name: '-10624338'
+            widget: string
+          - hint: >-
+              Original text: In this workshop, we will explore the sustainable
+              applications of AI, including how it can be used to address
+              pressing global challenges, such as climate change, food security,
+              and healthcare, and how it can help organizations build
+              sustainable business models., key: 1630e5c2
+            label: Text
+            name: 1630e5c2
+            widget: text
+          - hint: 'Original text: by Aisha Patel, key: 3ddf8665'
+            label: Text
+            name: 3ddf8665
+            widget: string
+          - hint: 'Original text: 03:00PM, key: 457a2714'
+            label: Text
+            name: 457a2714
+            widget: string
+          - hint: >-
+              Original text: Building Trust in AI: Strategies and Best
+              Practices, key: -35502b41
+            label: Text
+            name: '-35502b41'
+            widget: string
+          - hint: >-
+              Original text: We will discuss the challenges and opportunities
+              associated with building trust in AI and provide practical
+              guidance on how to create transparent, explainable, and
+              accountable AI systems., key: 18848ed2
+            label: Text
+            name: 18848ed2
+            widget: text
+          - hint: 'Original text: day 02, key: -4fccfafa'
+            label: Text
+            name: '-4fccfafa'
+            widget: string
+          - hint: >-
+              Original text: AI in Action: Applications and Case Studies, key:
+              360ea3de
+            label: Text
+            name: 360ea3de
+            widget: string
+          - hint: >-
+              Original text: AI and Cybersecurity: Opportunities and Risks, key:
+              6659d82e
+            label: Text
+            name: 6659d82e
+            widget: string
+          - hint: >-
+              Original text: This talk will explore how AI is changing the
+              cybersecurity landscape and how it can be used to enhance security
+              and protect against cyber threats., key: -525462e7
+            label: Text
+            name: '-525462e7'
+            widget: text
+          - hint: >-
+              Original text: The Role of AI in Healthcare Innovation, key:
+              1661c1e7
+            label: Text
+            name: 1661c1e7
+            widget: string
+          - hint: >-
+              Original text: In this workshop, we will explore the latest
+              applications of AI in healthcare, such as personalized medicine,
+              patient monitoring, and disease prevention. We will also discuss
+              the challenges and opportunities associated with integrating AI
+              into healthcare systems, and provide practical guidance on how to
+              develop and deploy AI-powered healthcare solutions that are
+              ethical, transparent, and effective., key: -ce6d80e
+            label: Text
+            name: '-ce6d80e'
+            widget: text
+          - hint: >-
+              Original text: AI and Business Strategy: Creating Value and
+              Managing Risks, key: -383038b3
+            label: Text
+            name: '-383038b3'
+            widget: string
+          - hint: >-
+              Original text: Explore how AI is reshaping business strategy and
+              providing new opportunities for growth and innovation. We will
+              discuss how to leverage AI to create value for customers, optimize
+              business processes, and gain competitive advantage., key: 73e48c81
+            label: Text
+            name: 73e48c81
+            widget: text
+          - hint: 'Original text: The Future of AI, key: 6b89ba03'
+            label: Text
+            name: 6b89ba03
+            widget: string
+          - hint: >-
+              Original text: This talk will provide a forward-looking
+              perspective on the future of AI and its potential impact on
+              society, industry, and individuals. We will discuss the
+              opportunities and challenges associated with the continued
+              development and deployment of AI, and explore the ethical
+              implications of AI on issues such as employment, privacy, and
+              inequality., key: -14867645
+            label: Text
+            name: '-14867645'
+            widget: text
+          - hint: 'Original text: 07:00PM, key: 4c4d8990'
+            label: Text
+            name: 4c4d8990
+            widget: string
+          - hint: 'Original text: dinner, key: -4f60138e'
+            label: Text
+            name: '-4f60138e'
+            widget: string
+          - hint: 'Original text: search results, key: -45c0ea82'
+            label: Text
+            name: '-45c0ea82'
+            widget: string
+          - hint: 'Original text: No matching results., key: -75764c4'
+            label: Text
+            name: '-75764c4'
+            widget: string
+          - hint: 'Original text: speakers, key: -7f3c5fac'
+            label: Text
+            name: '-7f3c5fac'
+            widget: string
+          - hint: 'Original text: speaker, key: -77b7a001'
+            label: Text
+            name: '-77b7a001'
+            widget: string
+          - hint: 'Original text: ken maskall, key: -7fce5e97'
+            label: Text
+            name: '-7fce5e97'
+            widget: string
+          - hint: >-
+              Original text: PROFESSOR – AI ETHICS, STANDFORD UNIVERSITY, key:
+              -1c8dce35
+            label: Text
+            name: '-1c8dce35'
+            widget: string
+          - hint: >-
+              Original text: Ken Maskall is a renowned AI Ethics leader with
+              over 15 years of experience in the artificial intelligence domain.
+              He holds a Ph.D. in Computer Science from Stanford University and
+              has authored numerous publications on AI's ethical implications
+              and responsible development. As the founder of the Responsible AI
+              Institute, Ken has been instrumental in shaping global AI policy
+              and promoting the adoption of ethical guidelines across
+              industries., key: -ea32042
+            label: Text
+            name: '-ea32042'
+            widget: text
+          - hint: >-
+              Original text: A frequent keynote speaker at international
+              conferences, Ken is dedicated to fostering interdisciplinary
+              collaboration and raising awareness about the social impact of AI
+              technology., key: 55f471a5
+            label: Text
+            name: 55f471a5
+            widget: text
+          - hint: 'Original text: AROUND THE WEB:, key: -75c8d518'
+            label: Text
+            name: '-75c8d518'
+            widget: string
+          - hint: 'Original text: Maria vasquez, key: 5ff25db7'
+            label: Text
+            name: 5ff25db7
+            widget: string
+          - hint: >-
+              Original text: Director of AI Ethics and Governance at neuratech,
+              key: 55d93e8e
+            label: Text
+            name: 55d93e8e
+            widget: string
+          - hint: >-
+              Original text: Maria Vasquez is a leading AI ethicist and
+              researcher who has been at the forefront of shaping ethical
+              frameworks for AI development and deployment. She holds a PhD in
+              Philosophy and has authored several influential publications on AI
+              ethics and governance. Currently, she serves as a consultant to
+              several leading AI companies and advises governments and
+              international organizations on AI policy and ethics. Her work has
+              been recognized with numerous awards and fellowships, including
+              the AI Ethics Pioneer Award from the AI Ethics Institute.
+                              Maria is a frequent speaker at international conferences and has been featured in several media outlets for her contributions to the field of AI ethics. She is passionate about promoting responsible and inclusive AI development that benefits society as a whole., key: -f0b2726
+            label: Text
+            name: '-f0b2726'
+            widget: text
+          - hint: 'Original text: arnold schulz, key: 3a5b2be1'
+            label: Text
+            name: 3a5b2be1
+            widget: string
+          - hint: 'Original text: founder and CEO of InsightMind, key: 690a33ee'
+            label: Text
+            name: 690a33ee
+            widget: string
+          - hint: >-
+              Original text: Arnold Schulz is a technology entrepreneur and AI
+              strategist who has a proven track record in driving innovation and
+              transformational change in the industry. He is the founder and CEO
+              of InsightMind, a company that provides AI-powered solutions to
+              businesses across various sectors. Arnold holds a degree in
+              Computer Science and has over 15 years of experience in developing
+              and deploying AI technology. He has been recognized for his work
+              with several awards and is a frequent speaker at international
+              conferences on AI and innovation.
+                              Arnold is passionate about leveraging AI to solve complex business challenges and drive social impact. He is also an advocate for ethical and responsible AI development that promotes transparency, fairness, and accountability., key: 6bb3f8df
+            label: Text
+            name: 6bb3f8df
+            widget: text
+          - hint: 'Original text: sponsors, key: -6d70ef67'
+            label: Text
+            name: '-6d70ef67'
+            widget: string
+          - hint: 'Original text: major sponsor, key: -69e2244d'
+            label: Text
+            name: '-69e2244d'
+            widget: string
+          - hint: >-
+              Original text: A leading provider of AI-powered solutions for
+              businesses across different sectors. Their solutions range from
+              advanced analytics and natural language processing to machine
+              learning and robotic process automation., key: -7b6c0057
+            label: Text
+            name: '-7b6c0057'
+            widget: text
+          - hint: 'Original text: altertype.io, key: -581bc7c'
+            label: Text
+            name: '-581bc7c'
+            widget: string
+          - hint: >-
+              Original text: Global leader in AI research and development, with
+              a focus on developing cutting-edge AI technologies that enable
+              smarter and more sustainable cities. Their solutions include
+              AI-powered traffic management, smart energy systems, and
+              predictive maintenance for critical infrastructure., key: 791d8409
+            label: Text
+            name: 791d8409
+            widget: text
+          - hint: 'Original text: luminous.ai, key: -4e78182e'
+            label: Text
+            name: '-4e78182e'
+            widget: string
+          - hint: 'Original text: sports & fitness, key: 7e3e948d'
+            label: Text
+            name: 7e3e948d
+            widget: string
+          - hint: 'Original text: style guide, key: -69525c33'
+            label: Text
+            name: '-69525c33'
+            widget: string
+          - hint: >-
+              Original text: A central guide for common components and styles
+              used in Synapse., key: -1d819e28
+            label: Text
+            name: '-1d819e28'
+            widget: string
+          - hint: 'Original text: Colors, key: 78a3a990'
+            label: Text
+            name: 78a3a990
+            widget: string
+          - hint: >-
+              Original text: Primaries and grays controlled by the Global Swatch
+              feature., key: 465410fe
+            label: Text
+            name: 465410fe
+            widget: string
+          - hint: 'Original text: dark, key: 2eef76'
+            label: Text
+            name: 2eef76
+            widget: string
+          - hint: 'Original text: #000000, key: -6fe2541d'
+            label: Text
+            name: '-6fe2541d'
+            widget: string
+          - hint: 'Original text: white, key: 6bdcc29'
+            label: Text
+            name: 6bdcc29
+            widget: string
+          - hint: 'Original text: #FFFFFF, key: -49175bdd'
+            label: Text
+            name: '-49175bdd'
+            widget: string
+          - hint: 'Original text: white - Faded, key: -3b974962'
+            label: Text
+            name: '-3b974962'
+            widget: string
+          - hint: 'Original text: rgba(255,255,255,0.2), key: 73acc77'
+            label: Text
+            name: 73acc77
+            widget: string
+          - hint: >-
+              Original text: Headings, body and other common text elements.,
+              key: -233ae319
+            label: Text
+            name: '-233ae319'
+            widget: string
+          - hint: 'Original text: Heading One, key: 770e1708'
+            label: Text
+            name: '770e1708'
+            widget: string
+          - hint: 'Original text: Heading Two, key: 770e2aee'
+            label: Text
+            name: 770e2aee
+            widget: string
+          - hint: 'Original text: Heading Three, key: -13d79240'
+            label: Text
+            name: '-13d79240'
+            widget: string
+          - hint: 'Original text: Heading Four, key: 6ab0b8c4'
+            label: Text
+            name: 6ab0b8c4
+            widget: string
+          - hint: 'Original text: Heading Five, key: 6ab0a250'
+            label: Text
+            name: 6ab0a250
+            widget: string
+          - hint: "Original text: Large Text\_\_\_\_, key: 744fd632"
+            label: Text
+            name: 744fd632
+            widget: string
+          - hint: 'Original text: Large Link, key: -131bfe01'
+            label: Text
+            name: '-131bfe01'
+            widget: string
+          - hint: "Original text: Body Text\_\_\_\_, key: -3b6c0095"
+            label: Text
+            name: '-3b6c0095'
+            widget: string
+          - hint: 'Original text: Body Link, key: -41685048'
+            label: Text
+            name: '-41685048'
+            widget: string
+          - hint: "Original text: Small Text\_\_\_\_, key: -1ccdbe1a"
+            label: Text
+            name: '-1ccdbe1a'
+            widget: string
+          - hint: 'Original text: Small Link, key: -4367984d'
+            label: Text
+            name: '-4367984d'
+            widget: string
+          - hint: 'Original text: Buttons, key: 719b5761'
+            label: Text
+            name: 719b5761
+            widget: string
+          - hint: >-
+              Original text: Component, text style and size variations, key:
+              -12c08cdb
+            label: Text
+            name: '-12c08cdb'
+            widget: string
+          - hint: 'Original text: default, key: 5c13d641'
+            label: Text
+            name: 5c13d641
+            widget: string
+          - hint: 'Original text: Small, key: 4c4a4e7'
+            label: Text
+            name: 4c4a4e7
+            widget: string
+          - hint: 'Original text: small arrow, key: 7436fbb0'
+            label: Text
+            name: 7436fbb0
+            widget: string
+          - hint: 'Original text: Form Inputs, key: 3566cc5'
+            label: Text
+            name: 3566cc5
+            widget: string
+          - hint: >-
+              Original text: General style and state variations for text
+              inputs., key: 5791532a
+            label: Text
+            name: 5791532a
+            widget: string
+          - hint: 'Original text: Input, key: 43867aa'
+            label: Text
+            name: 43867aa
+            widget: string
+          - hint: 'Original text: Text Area, key: 360b43a0'
+            label: Text
+            name: 360b43a0
+            widget: string
+          - hint: 'Original text: Form Selectables, key: 2d1d3d81'
+            label: Text
+            name: 2d1d3d81
+            widget: string
+          - hint: >-
+              Original text: Styling for checkboxes, selects and radios., key:
+              -760ab70a
+            label: Text
+            name: '-760ab70a'
+            widget: string
+          - hint: 'Original text: Radio, key: 4b123db'
+            label: Text
+            name: 4b123db
+            widget: string
+          - hint: 'Original text: Choose an option, key: -2e3e4ae1'
+            label: Text
+            name: '-2e3e4ae1'
+            widget: string
+          - hint: 'Original text: First Choice, key: -491b32af'
+            label: Text
+            name: '-491b32af'
+            widget: string
+          - hint: 'Original text: Second Choice, key: 3c4172cd'
+            label: Text
+            name: 3c4172cd
+            widget: string
+          - hint: 'Original text: Third Choice, key: -1b351146'
+            label: Text
+            name: '-1b351146'
+            widget: string
+          - hint: 'Original text: unity / unreal solutions, key: -47e540b3'
+            label: Text
+            name: '-47e540b3'
+            widget: string
+          - hint: 'Original text: vr solutions, key: 27a459b6'
+            label: Text
+            name: 27a459b6
+            widget: string
+          - hint: 'Original text: webar, key: 6bc5285'
+            label: Text
+            name: 6bc5285
+            widget: string
+          - hint: 'Original text: empty area, key: -42a17c80'
+            label: Text
+            name: '-42a17c80'
+            widget: string
+      - label: Links
+        name: links
+        file: cms/_data/links.json
+        fields:
+          - label: Title
+            name: title
+            widget: hidden
+            default: Links
+          - hint: 'Original link: #Top, key: 113232'
+            label: Link
+            name: '113232'
+            widget: string
+          - hint: 'Original link: /, key: 2f'
+            label: Link
+            name: 2f
+            widget: string
+          - hint: 'Original link: /immersive/, key: -73fc81bd'
+            label: Link
+            name: '-73fc81bd'
+            widget: string
+          - hint: 'Original link: /industries/, key: 6774a924'
+            label: Link
+            name: 6774a924
+            widget: string
+          - hint: 'Original link: /ourwork/, key: 39b57ca1'
+            label: Link
+            name: 39b57ca1
+            widget: string
+          - hint: 'Original link: /insights/, key: -373b779b'
+            label: Link
+            name: '-373b779b'
+            widget: string
+          - hint: 'Original link: /home2/, key: 6e0c204b'
+            label: Link
+            name: 6e0c204b
+            widget: string
+          - hint: 'Original link: /contact/, key: 16bdc13e'
+            label: Link
+            name: 16bdc13e
+            widget: string
+          - hint: 'Original link: #, key: 23'
+            label: Link
+            name: '23'
+            widget: string
+          - hint: 'Original link: /schedule/, key: -30187ad7'
+            label: Link
+            name: '-30187ad7'
+            widget: string
+          - hint: 'Original link: /location/, key: -6ddfe435'
+            label: Link
+            name: '-6ddfe435'
+            widget: string
+          - hint: 'Original link: /retail/, key: 53c76c7d'
+            label: Link
+            name: 53c76c7d
+            widget: string
+          - hint: 'Original link: /hospitality/, key: 53a9002a'
+            label: Link
+            name: 53a9002a
+            widget: string
+          - hint: 'Original link: /arts-and-entertainment/, key: -24b60235'
+            label: Link
+            name: '-24b60235'
+            widget: string
+          - hint: 'Original link: /sports-and-fitness/, key: -4a989e84'
+            label: Link
+            name: '-4a989e84'
+            widget: string
+          - hint: >-
+              Original link:
+              https://webflow.com/dashboard/sites/new?t=646e2dfd2d2671e4a89427bd,
+              key: -71bcc39c
+            label: Link
+            name: '-71bcc39c'
+            widget: string
+          - hint: 'Original link: /old-home/, key: -d324b45'
+            label: Link
+            name: '-d324b45'
+            widget: string
+          - hint: 'Original link: /speakers/, key: 712c2f0c'
+            label: Link
+            name: 712c2f0c
+            widget: string
+          - hint: 'Original link: /sponsors/, key: -67313899'
+            label: Link
+            name: '-67313899'
+            widget: string
+          - hint: 'Original link: /blog/, key: 55cb89fe'
+            label: Link
+            name: 55cb89fe
+            widget: string
+          - hint: 'Original link: /legal/, key: 744fd585'
+            label: Link
+            name: 744fd585
+            widget: string
+          - hint: 'Original link: /template/style-guide/, key: 68b616f5'
+            label: Link
+            name: 68b616f5
+            widget: string
+          - hint: 'Original link: /template/getting-started/, key: 292473dd'
+            label: Link
+            name: 292473dd
+            widget: string
+          - hint: 'Original link: /template/changelog/, key: -415dcebf'
+            label: Link
+            name: '-415dcebf'
+            widget: string
+          - hint: 'Original link: /template/licenses/, key: fcd3937'
+            label: Link
+            name: fcd3937
+            widget: string
+          - hint: >-
+              Original link:
+              https://mediumrare.shop/?utm_source=webflow.io&utm_medium=template-demo&utm_campaign=Synapse%20Demo&utm_content=Footer%20About,
+              key: -3d7b85a3
+            label: Link
+            name: '-3d7b85a3'
+            widget: string
+          - hint: >-
+              Original link:
+              https://mediumrare.shop/?utm_source=webflow.io&utm_medium=template-demo&utm_campaign=Synapse%20Demo&utm_content=Footer%20Shop,
+              key: -127795da
+            label: Link
+            name: '-127795da'
+            widget: string
+          - hint: >-
+              Original link:
+              https://mediumrare.shop/about?utm_source=webflow.io&utm_medium=template-demo&utm_campaign=Synapse%20Demo&utm_content=Top%20Bar%20About,
+              key: -69ff0054
+            label: Link
+            name: '-69ff0054'
+            widget: string
+          - hint: >-
+              Original link:
+              https://mediumrare.shop/?utm_source=webflow.io&utm_medium=template-demo&utm_campaign=Synapse%20Demo&utm_content=Top%20Bar%20Shop,
+              key: 73af872c
+            label: Link
+            name: 73af872c
+            widget: string
+          - hint: 'Original link: https://unsplash.com/license, key: 503d854'
+            label: Link
+            name: 503d854
+            widget: string
+          - hint: >-
+              Original link:
+              https://synapse-template.webflow.io/template/style-guide, key:
+              -4dc6b139
+            label: Link
+            name: '-4dc6b139'
+            widget: string
+          - hint: 'Original link: https://university.webflow.com/, key: 76a31a6b'
+            label: Link
+            name: 76a31a6b
+            widget: string
+          - hint: 'Original link: https://mediumrare.shop/support, key: -64ca8302'
+            label: Link
+            name: '-64ca8302'
+            widget: string
+          - hint: 'Original link: /webar/, key: -78ed20c7'
+            label: Link
+            name: '-78ed20c7'
+            widget: string
+          - hint: 'Original link: /app-based-ar/, key: -22116377'
+            label: Link
+            name: '-22116377'
+            widget: string
+          - hint: 'Original link: /cv-custom-solutions/, key: -124556fa'
+            label: Link
+            name: '-124556fa'
+            widget: string
+          - hint: 'Original link: /metaverse-workshop/, key: -30f08844'
+            label: Link
+            name: '-30f08844'
+            widget: string
+          - hint: 'Original link: /metaverse-partner/, key: -38b6124d'
+            label: Link
+            name: '-38b6124d'
+            widget: string
+          - hint: 'Original link: /vr-solutions/, key: -2bc40ac9'
+            label: Link
+            name: '-2bc40ac9'
+            widget: string
+          - hint: 'Original link: /unity-and-unreal-solutions/, key: d188cce'
+            label: Link
+            name: d188cce
+            widget: string
+          - hint: 'Original link: /industry-4-0-solutions/, key: 520256cb'
+            label: Link
+            name: 520256cb
+            widget: string
+          - hint: 'Original link: /medtech-solutions/, key: -6bd4d3f1'
+            label: Link
+            name: '-6bd4d3f1'
+            widget: string
+          - hint: 'Original link: /insight-1/, key: 4fcb7de2'
+            label: Link
+            name: 4fcb7de2
+            widget: string
+          - hint: 'Original link: /insight-2/, key: 4fcb7e01'
+            label: Link
+            name: 4fcb7e01
+            widget: string
+          - hint: 'Original link: /insight-3/, key: 4fcb7e20'
+            label: Link
+            name: 4fcb7e20
+            widget: string
+          - hint: 'Original link: /insight-4/, key: 4fcb7e3f'
+            label: Link
+            name: 4fcb7e3f
+            widget: string
+          - hint: >-
+              Original link:
+              https://unsplash.com/collections/ncV4YkioZLU/synapse, key:
+              611f082b
+            label: Link
+            name: 611f082b
+            widget: string
+          - hint: >-
+              Original link:
+              https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=ofl,
+              key: -25c610cc
+            label: Link
+            name: '-25c610cc'
+            widget: string
+          - hint: 'Original link: https://www.pexels.com/license/, key: -627f9885'
+            label: Link
+            name: '-627f9885'
+            widget: string
+          - hint: >-
+              Original link:
+              https://www.pexels.com/collections/synapse-nmnzrby/, key: 3c6273c
+            label: Link
+            name: 3c6273c
+            widget: string
+          - hint: 'Original link: /demo-1/, key: 6ed2ff39'
+            label: Link
+            name: 6ed2ff39
+            widget: string
+          - hint: 'Original link: /demo-2/, key: 6ed2ff58'
+            label: Link
+            name: 6ed2ff58
+            widget: string
+          - hint: 'Original link: /demo-3/, key: 6ed2ff77'
+            label: Link
+            name: 6ed2ff77
+            widget: string
+      - label: Images
+        name: images
+        file: cms/_data/images.json
+        fields:
+          - label: Title
+            name: title
+            widget: hidden
+            default: Images
+          - label: Image
+            name: i4abcf6a8
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 6d3cd3bb
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 174d5776
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-638c03fb'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-42cfa88f'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 1df66800
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-5eecc25f'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-424927a5'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 39d75028
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-43d3b9c1'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-43efe8c3'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-422cf8a3'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-f349f70'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-28bd3972'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-6219f689'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 7a7eb056
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-4b41b1'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-695dcf0b'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-423b1024'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-442846c7'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-421ee122'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-5efad9e0'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 474e58f2
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 475c7073
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 4724126f
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 473229f0
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '47404171'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+local_backend: true
+publish_mode: editorial_workflow
